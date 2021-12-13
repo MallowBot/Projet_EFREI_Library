@@ -1,13 +1,13 @@
 package Projet.models;
 
 public class Address {
-	private int ID;
-	private String ADDRESS;
+	private int id;
+	private String address;
 	private String address2;
-	private String DISTRICT;
-	private String CITY;
-	private String POSTAL_CODE;
-	private String COUNTRY;
+	private String district;
+	private String city;
+	private String postal_code;
+	private String country;
 
 	//private Address() { }
 	
@@ -26,19 +26,19 @@ public class Address {
 	}
 
 	public int getId() {
-		return ID;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.ID = id;
+		this.id = id;
 	}
 
 	public String getAddress() {
-		return ADDRESS;
+		return address;
 	}
 
 	public void setAddress(String address) {
-		this.ADDRESS = address;
+		this.address = address;
 	}
 
 	public String getAddress2() {
@@ -50,41 +50,41 @@ public class Address {
 	}
 
 	public String getDistrict() {
-		return DISTRICT;
+		return district;
 	}
 
 	public void setDistrict(String district) {
-		this.DISTRICT = district;
+		this.district = district;
 	}
 	
 	public String getCity() {
-		return CITY;
+		return city;
 	}
 
 	public void setCity(String city) {
-		this.CITY = city;
+		this.city = city;
 	}
 	
 	public String getPostal_code() {
-		return POSTAL_CODE;
+		return postal_code;
 	}
 
 	public void setPostal_code(String postal_code) {
-		this.POSTAL_CODE = postal_code;
+		this.postal_code = postal_code;
 	}
 	
 	public String getCountry() {
-		return COUNTRY;
+		return country;
 	}
 
 	public void setCountry(String country) {
-		this.COUNTRY = country;
+		this.country = country;
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "Book [id=" + ID + ", title=" + ADDRESS + ", author=" + address2 + ", synopsis=" + DISTRICT + "]";
+		return "Book [id=" + id + ", title=" + address + ", author=" + address2 + ", synopsis=" + district + "]";
 	}
 
 //	public static class AddressBuilder {
