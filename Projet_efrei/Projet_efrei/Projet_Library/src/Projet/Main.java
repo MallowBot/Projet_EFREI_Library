@@ -16,7 +16,7 @@ public class Main {
 	private static Scanner sc = new Scanner(System.in);
 
 	public static void printSeparator() {
-		System.out.printf("\n----------------------------------------------------------\n");
+		System.out.printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	}
 
 	public static int scanIdFor(String entity) {
@@ -30,16 +30,16 @@ public class Main {
 		DbConnection db = new DbConnection();
 		db.initConnection();
 		printSeparator();
-		try {
-			ResultSet set = db.executeQuery("SELECT * from BOOKS");
-			while (set.next()) {
-				int id = set.getInt("Id");
-				String name = set.getString("Name");
-				String lastName = set.getString("LastName");
-				System.out.println(new Book(id, title, author, synopsis, genre, is_issued));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+//		try {
+//			ResultSet set = db.executeQuery("SELECT * from BOOKS");
+//			while (set.next()) {
+//				int id = set.getInt("Id");
+//				String name = set.getString("Name");
+//				String lastName = set.getString("LastName");
+//				System.out.println(new Book(id, title, author, synopsis, genre, is_issued));
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
 		
 	}
 	
