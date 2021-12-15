@@ -32,11 +32,16 @@ public class Repo_person {
 
 		@Override
 		public boolean add(Person person) {
-			String sql = String.format("Insert into %s(Name, LastName) values(?,?)", tableName);
+			String sql = String.format("Insert into %s(Name, LastName, Password, DateOfBirth, AdressId, Phone, Genre) values(?,?,?,?,?,?,?)", tableName);
 			try {
 				PreparedStatement preparedStatement = this.conn.createPreparedStatement(sql);
 				preparedStatement.setString(1, person.getName());
 				preparedStatement.setString(2, person.getLastName());
+				preparedStatement.setString(3, person.getPassword());
+				preparedStatement.setDate(4, person.getDateOfBirth());
+				preparedStatement.setInt(5, person.getAdressId());
+				preparedStatement.setString(6, person.getPhone());
+				preparedStatement.setString(7, person.getGenre());
 				preparedStatement.execute();
 				return true;
 			} catch (SQLException e1) {
@@ -52,6 +57,11 @@ public class Repo_person {
 				PreparedStatement preparedStatement = this.conn.createPreparedStatement(sql);
 				preparedStatement.setString(1, person.getName());
 				preparedStatement.setString(2, person.getLastName());
+				preparedStatement.setString(3, person.getPassword());
+				preparedStatement.setDate(4, person.getDateOfBirth());
+				preparedStatement.setInt(5, person.getAdressId());
+				preparedStatement.setString(6, person.getPhone());
+				preparedStatement.setString(7, person.getGenre());
 				preparedStatement.setInt(3, id);
 				preparedStatement.execute();
 				return true;
