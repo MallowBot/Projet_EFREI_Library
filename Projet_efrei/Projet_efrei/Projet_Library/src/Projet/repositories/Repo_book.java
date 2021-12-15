@@ -49,7 +49,7 @@ public class Repo_book {
 
 		@Override
 		public boolean update(int id, Book book) {
-			String sql = String.format("UPDATE %s SET Title=?, Author=?, Synopsis=?) Where Id = ?", tableName);
+			String sql = String.format("UPDATE %s SET Title=?, Author=?, Synopsis=?, Genre=?, Is_issued=?) Where Id = ?", tableName);
 			try {
 				PreparedStatement preparedStatement = this.conn.createPreparedStatement(sql);
 				preparedStatement.setString(1, book.getTitle());
@@ -57,7 +57,7 @@ public class Repo_book {
 				preparedStatement.setString(3, book.getSynopsis());
 				preparedStatement.setString(4, book.getGenre());
 				preparedStatement.setString(5, book.getIS_issued());
-				preparedStatement.setInt(4, id);
+				preparedStatement.setInt(6, id);
 				preparedStatement.execute();
 				return true;
 			} catch (SQLException e1) {

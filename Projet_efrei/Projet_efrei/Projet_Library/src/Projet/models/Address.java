@@ -6,22 +6,22 @@ public class Address {
 	private String address2;
 	private String district;
 	private String city;
-	private String postal_code;
+	private String postalCode;
 	private String country;
 
 	//private Address() { }
 	
-	public Address(String address, String address2, String district, String city, String postal_code, String country) {
+	public Address(String address, String address2, String district, String city, String postalCode, String country) {
 		this.setAddress(address);
 		this.setAddress2(address2);
 		this.setDistrict(district);
 		this.setCity(city);
-		this.setPostal_code(postal_code);
+		this.setPostalCode(postalCode);
 		this.setCountry(country);
 	}
 
-	public Address(int id, String address, String address2, String district, String city, String postal_code, String country) {
-		this(address, address2, district, city, postal_code, country);
+	public Address(int id, String address, String address2, String district, String city, String postalCode, String country) {
+		this(address, address2, district, city, postalCode, country);
 		this.setId(id);
 	}
 
@@ -65,12 +65,12 @@ public class Address {
 		this.city = city;
 	}
 	
-	public String getPostal_code() {
-		return postal_code;
+	public String getPostalCode() {
+		return postalCode;
 	}
 
-	public void setPostal_code(String postal_code) {
-		this.postal_code = postal_code;
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
 	}
 	
 	public String getCountry() {
@@ -84,7 +84,7 @@ public class Address {
 	
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + address + ", author=" + address2 + ", synopsis=" + district + "]";
+		return "Book [id=" + id + ", title=" + address + ", author=" + address2 + ", synopsis=" + district + ", city=" + city + ", country=" + country + "]";
 	}
 
 //	public static class AddressBuilder {
