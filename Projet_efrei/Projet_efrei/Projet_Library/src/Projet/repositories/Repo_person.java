@@ -1,14 +1,17 @@
 package Projet.repositories;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import Projet.DbConnection;
 import Projet.abstracts.DAOImpl;
 import Projet.models.Person;
 
-public class Repo_person extends DAOImpl<Person> {
+public class Repo_person {
+
+
+	public class Persons extends DAOImpl<Person> {
 
 	public Persons(DbConnection conn) {
 			super(conn, "Persons");
@@ -16,10 +19,15 @@ public class Repo_person extends DAOImpl<Person> {
 
 		@Override
 		protected Person fromResultSet(ResultSet set) throws SQLException {
-			int id = set.getInt("Id");
-			String name = set.getString("Name");
-			String lastName = set.getString("LastName");
-			return new Person(id, name, lastName, password, dateOfBirth, adressId, phone, genre);
+			int personid = set.getInt("personId");
+			String name = set.getString("name");
+			String lastName = set.getString("lastName");
+			String password = set.getString("password");
+			Date dateOfBirth = set.getDate("dateOfBirth");
+			int adressId = set.getInt("adressId");
+			String phone = set.getString("phone");
+			String genre = set.getString("genre");
+			return new Person(personid, name, lastName, password, dateOfBirth, adressId, phone, genre);
 		}
 
 		@Override
@@ -53,6 +61,5 @@ public class Repo_person extends DAOImpl<Person> {
 			return false;
 		}
 
-	
-	
+}
 }

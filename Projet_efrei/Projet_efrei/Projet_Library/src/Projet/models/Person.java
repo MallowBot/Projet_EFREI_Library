@@ -13,32 +13,35 @@ public class Person {
 	private String phone;
 	private String genre;
 
-	public Person(String name, String lastName, String synopsis, String genre, String is_issued) {
+	public Person(String name, String lastName, String password, Date dateOfBirth, int adressId, String phone, String genre) {
 		this.setName(name);
-		this.setAuthor(lastName);
-		this.setSynopsis(password);
+		this.setLastName(lastName);
+		this.setPassword(password);
+		this.setDateOfBirth(dateOfBirth);
+		this.setAdressId(adressId);
+		this.setPhone(phone);
 		this.setGenre(genre);
-		this.setIS_issued(is_issued);
+		
 	}
 
-	public Person (int id, String name, String lastName, String password, String genre, String is_issued) {
-		this(name, lastName, password, genre, is_issued);
-		this.setId(id);
+	public Person (int personid, String name, String lastName, String password, Date dateOfBirth, int adressId, String phone, String genre) {
+		this(name, lastName, password, dateOfBirth, adressId, phone, genre);
+		this.setPersonId(personid);
 	}
 
-	public int getId() {
-		return id;
+	public int getPersonId() {
+		return personId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setPersonId(int personId) {
+		this.personId = personId;
 	}
 
-	public String getTitle() {
+	public String getName() {
 		return name;
 	}
 
-	public void setTitle(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -58,6 +61,30 @@ public class Person {
 		this.password = password;
 	}
 	
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	
+	public int getAdressId() {
+		return adressId;
+	}
+
+	public void setAdressId(int adressId) {
+		this.adressId = adressId;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
 	public String getGenre() {
 		return genre;
 	}
@@ -65,18 +92,10 @@ public class Person {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	
-	public String getIS_issued() {
-		return synopsis;
-	}
-
-	public void setIS_issued(String is_issued) {
-		this.is_issued = is_issued;
-	}
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", synopsis=" + synopsis + ", genre=" + genre +", disponible =" + is_issued +"]";
+		return "Book [personId=" + personId + ", name=" + name + ", lastName=" + lastName + ", password=" + password + ", dateOfBirth=" + dateOfBirth +", adressId =" + adressId +", phone=" + phone +", genre=" + genre +"]";
 	}
 
 }
