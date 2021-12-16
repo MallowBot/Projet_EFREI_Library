@@ -1,5 +1,6 @@
 package Projet.repositories;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,23 +22,26 @@ public class Repo_loan {
 				@Override
 				protected Loan fromResultSet(ResultSet set) throws SQLException {
 					int loanId = set.getInt("loanId");
-					String type = set.getString("type");
-					String salary = set.getString("salary");
-					String desk = set.getString("desk");
-					String office = set.getString("office");
-					
-					return new Loan(loanid, type, salary, desk, office);
+					int borrowerId = set.getInt("borrowerId");
+					int bookId = set.getInt("bookId");
+					int issuerId = set.getInt("issuerId");
+					Date issuedDate = set.getDate("issuedDate");
+					int receiverId = set.getInt("receiverId");
+					Date returnDate = set.getDate("returnDate");
+					return new Loan(loanId, borrowerId, bookId, issuerId, issuedDate, receiverId, returnDate);
 				}
 
 				@Override
 				public boolean add(Loan Loan) {
-					String sql = String.format("Insert into %s(type, salary, desk, office) values(?,?,?,?)", tableName);
+					String sql = String.format("Insert into %s(borrowerId, bookId, issuerId, issuedDate, receiverId, returnDate) values(?,?,?,?,?,?)", tableName);
 					try {
 						PreparedStatement preparedStatement = this.conn.createPreparedStatement(sql);
-						preparedStatement.setString(1, Loan.getType());
-						preparedStatement.setString(2, Loan.getSalary());
-						preparedStatement.setString(3, Loan.getDesk());
-						preparedStatement.setString(4, Loan.getOffice());
+						preparedStatement.setInt(1, Loan.getBorrowerId());
+						preparedStatement.setInt(2, Loan.getBookId());
+						preparedStatement.setInt(3, Loan.getIssuerId());
+						preparedStatement.setDate(4, Loan.getIssuedDate());
+						preparedStatement.setInt(5, Loan.getReceiverId());
+						preparedStatement.setDate(6, Loan.getReturnDate());
 						preparedStatement.execute();
 						return true;
 					} catch (SQLException e1) {
@@ -51,10 +55,12 @@ public class Repo_loan {
 					String sql = String.format("UPDATE %s SET Address=?, Address2=?, District=?, City=?) Where Id = ?", tableName);
 					try {
 						PreparedStatement preparedStatement = this.conn.createPreparedStatement(sql);
-						preparedStatement.setString(1, Loan.getType());
-						preparedStatement.setString(2, Loan.getSalary());
-						preparedStatement.setString(3, Loan.getDesk());
-						preparedStatement.setString(4, Loan.getOffice());
+						preparedStatement.setInt(1, Loan.getBorrowerId());
+						preparedStatement.setInt(2, Loan.getBookId());
+						preparedStatement.setInt(3, Loan.getIssuerId());
+						preparedStatement.setDate(4, Loan.getIssuedDate());
+						preparedStatement.setInt(5, Loan.getReceiverId());
+						preparedStatement.setDate(6, Loan.getReturnDate());
 						preparedStatement.setInt(7, id);
 						preparedStatement.execute();
 						return true;

@@ -30,23 +30,21 @@ public class Main {
 		DbConnection db = new DbConnection();
 		db.initConnection();
 		printSeparator();
-//		try {
-//			ResultSet set = db.executeQuery("SELECT * from BOOKS");
-//			while (set.next()) {
-//				int id = set.getInt("Id");
-//				String name = set.getString("Name");
-//				String lastName = set.getString("LastName");
-//				System.out.println(new Book(id, title, author, synopsis, genre, is_issued));
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
+		try {
+			ResultSet set = db.executeQuery("SELECT * from BOOK");
+			while (set.next()) {
+				int id = set.getInt("Id");
+				String title = set.getString("title");
+				String author = set.getString("author");
+				String synopsis = set.getString("synopsis");
+				String genre = set.getString("genre");
+				String is_issued = set.getString("is_issued");
+				System.out.println(new Book(id, title, author, synopsis, genre, is_issued));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		
+	}	
 	}
-	
-	
-	
-//	Address address = new AddressBuilder("30 rue Tel", "VilleJuif", "75000","France").setAddress2("").setID().build();
-//		
-//	}
-
 }
+
